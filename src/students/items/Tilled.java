@@ -1,0 +1,54 @@
+package students.items;
+
+/**
+ * @author Claudio Pietromartire
+ * 
+ * @author piece001
+ */
+public class Tilled extends Soil{
+	
+	private static final int VALUE_HARVEST = 0; 
+	public static final String IS_MATURE = ".";
+	
+	/**
+	 * All Args constructor
+	 * 
+	 * @param maturationAge - when the item is ready to Harvest
+	 * @param deathAge      - when the item dies
+	 * @param monetaryValue - is the return price for successfully harvesting the crop
+	 */
+	public Tilled(int maturationAge, int deathAge, int monetaryValue) {
+		super(maturationAge, deathAge, monetaryValue);
+	}
+
+	
+	/**
+	 * the No Args Constructor with default values
+	 */
+	public Tilled() {
+		this(Soil.AGE_HARVEST, Soil.AGE_HARVEST, Tilled.VALUE_HARVEST);
+	}
+	
+	/**
+	 * Copy constructor
+	 * @param other object of this class
+	 */
+	private Tilled(Item other) {
+		super(Soil.AGE_HARVEST, Soil.AGE_HARVEST,other.monetaryValue);
+	}
+	
+	/**
+	 * a clone of this object
+	 */
+	@Override
+	public Item clone() {
+		return new Tilled(this);
+	}
+	/**
+	 * Returns representation of each item in a String
+	 */
+	@Override
+	public String toString() {
+		return Tilled.IS_MATURE;
+	}
+}
